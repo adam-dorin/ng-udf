@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { NgUdfService } from 'ng-udf';
+import { FormButtonComponent } from './components/form-button/form-button.component';
+import { FormInputComponent } from './components/form-input/form-input.component';
+import { FormSelectComponent } from './components/form-select/form-select.component';
+
 
 @Component({
   selector: 'app-root',
@@ -26,4 +31,12 @@ export class AppComponent {
       type: 'button',
     },
   ];
+
+  constructor(private udfService: NgUdfService) {
+    this.udfService.setComponents({
+      input: FormInputComponent,
+      select: FormSelectComponent,
+      button: FormButtonComponent
+    })
+  }
 }
