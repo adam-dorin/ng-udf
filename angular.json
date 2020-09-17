@@ -119,6 +119,46 @@
           }
         }
       }
+    },
+    "ngUdf": {
+      "projectType": "library",
+      "root": "projects/ng-udf",
+      "sourceRoot": "projects/ng-udf/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/ng-udf/tsconfig.lib.json",
+            "project": "projects/ng-udf/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-udf/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ng-udf/src/test.ts",
+            "tsConfig": "projects/ng-udf/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-udf/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ng-udf/tsconfig.lib.json",
+              "projects/ng-udf/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "app"
 }
