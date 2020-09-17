@@ -2,6 +2,13 @@
 
 The goal is to build an angular package that can generate a form based on a schema.
 
+## Install
+
+```bash 
+
+npm i ng-udf --save-dev
+
+```
 ## Research
 
 1. https://angular.io/guide/dynamic-form
