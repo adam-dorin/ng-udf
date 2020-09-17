@@ -44,6 +44,6 @@ forms by using a schema.
 ```
 
 ### TODO:
-* [] Publish the package to npm
-* [] Add support for multiple forms
-* [] Make a schema helper/generator
+* [ ] Publish the package to npm
+* [ ] Add support for multiple forms
+* [ ] Make a schema helper/generator
