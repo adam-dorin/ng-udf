@@ -12,8 +12,7 @@ The goal is to build an angular package that can generate a form based on a sche
 
 
 ### Current Model:
-``json
-
+```json
 {
   "type": "select",
   "label": "Favorite food",
@@ -27,4 +26,4 @@ The goal is to build an angular package that can generate a form based on a sche
   "placeholder": "Select an option",
 }
 
-``
+```
