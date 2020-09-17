@@ -27,3 +27,26 @@ The goal is to build an angular package that can generate a form based on a sche
 }
 
 ```
+
+### Target Model:
+
+```json
+{
+    "form": {
+        "elements":[
+            {
+                "type": "string | FormElementsTypes | Container",
+                "name": "string",
+                "value": "any",
+                "validation": "ValidationRule[]",
+                "properties":{
+                    "children": "?FormElement[]",
+                    "options": "?HTMLElementOptions"
+                }
+            }
+        ]
+    }
+}
+
+
+```
