@@ -1,6 +1,22 @@
 {
   "name": "ng-udf",
-  "version": "0.0.1",
+  "version": "0.0.5",
+  "author": "Dorin Adam",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adam-dorin/ng-udf"
+  },
+  "bugs": {
+    "url": "https://github.com/adam-dorin/ng-udf/issues"
+  },
+  "homepage": "https://github.com/adam-dorin/ng-udf",
+  "keywords": [
+    "angular",
+    "forms",
+    "user generated",
+    "dynamic forms"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^10.1.1",
     "@angular/core": "^10.1.1"
