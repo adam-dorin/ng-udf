@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-ngUdf',
+  selector: 'ng-udf',
   template: `
     <p>
       ng-udf works!

@@ -10,6 +10,8 @@ import { FormSelectComponent } from './components/form-select/form-select.compon
 import { FormButtonComponent } from './components/form-button/form-button.component';
 import { DynamicFieldDirective } from './components/dynamic-field.directive';
 
+import { NgUdfModule } from 'ng-udf'; 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,8 @@ import { DynamicFieldDirective } from './components/dynamic-field.directive';
   imports: [
     BrowserModule,
     CommonModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgUdfModule
   ],
   providers: [],
   bootstrap: [AppComponent]
