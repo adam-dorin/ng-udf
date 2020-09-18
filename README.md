@@ -1,6 +1,6 @@
 ## ng-UDF
 
-The goal is to build an angular package that can generate a form based on a schema.
+The goal is to build an angular package that can generate a form based on a schema + some basic components.
 
 ## Install
 
