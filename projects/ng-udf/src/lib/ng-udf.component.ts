@@ -6,11 +6,7 @@ import { NgUdfService } from './ng-udf.service';
 @Component({
   selector: 'ng-udf',
   template: `
-  <h2>test form</h2>
-  <form
-        class="dynamic-form"
-        [formGroup]="form"
-        >
+  <form class="dynamic-form [formGroup]="form" >
         <ng-container
           *ngFor="let field of config;"
           dynamicField
@@ -49,7 +45,7 @@ export class NgUdfComponent implements OnInit, OnDestroy {
   createGroup() {
     const group = this.fb.group({});
     this.config.forEach(control => {
-      // this will be broken
+      // TODO: Check the ussage here: https://angular.io/api/forms/FormBuilder#control-usage-notes
       group.addControl(control.name, this.fb.control(true))
     });
     return group;
