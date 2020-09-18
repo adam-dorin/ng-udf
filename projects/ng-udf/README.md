@@ -47,3 +47,7 @@ forms by using a schema.
 * [x] Publish the package to npm
 * [ ] Add support for multiple forms
 * [ ] Make a schema helper/generator
+* [ ] Add some demos
+* [ ] Add events
+* [ ] Helpers for application side component / inputs
+
