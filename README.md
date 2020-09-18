@@ -11,13 +11,7 @@ npm i ng-udf --save-dev
 ```
 ## Research
 
-1. https://angular.io/guide/dynamic-form
-2. https://jasonwatmore.com/post/2019/06/25/angular-8-dynamic-reactive-forms-example
-3. https://medium.com/@krishnaregmi/how-to-create-dynamic-forms-in-angular-7-using-formcontrol-a443a2c5e3a9
-4. https://medium.com/@mail.bahurudeen/create-a-dynamic-form-with-configurable-fields-and-validations-using-angular-6-994db56834da
-5. https://ultimatecourses.com/blog/angular-dynamic-components-forms
-6. https://indepth.dev/complete-beginner-guide-to-publishing-an-angular-library-to-npm/
-
+Doc is [here](https://github.com/adam-dorin/ng-udf/blob/master/Research-and-plans.md)
 
 ### Current Model:
 ```json
@@ -55,6 +49,5 @@ npm i ng-udf --save-dev
         ]
     }
 }
-
 
 ```
