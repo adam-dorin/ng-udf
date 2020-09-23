@@ -1,10 +1,10 @@
-<div 
+<div  *ngIf="config"
       class="dynamic-field form-select"
       [formGroup]="group">
-      <label>{{ config.label }}</label>
+      <label style="display: block;">{{ attr.label }}:</label>
       <select [formControlName]="config.name">
-        <option value="">{{ config.placeholder }}</option>
-        <option *ngFor="let option of config.options">
+        <option value="">{{ attr.placeholder }}</option>
+        <option *ngFor="let option of attr.options">
           {{ option }}
         </option>
       </select>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { UdfFormElement } from 'ng-udf';
 
 
 @Component({
@@ -9,11 +10,14 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormSelectComponent implements OnInit {
 
-  config;
+  config: UdfFormElement;
   group: FormGroup;
+  attr;
   constructor() { }
 
   ngOnInit(): void {
+    this.attr = this.config.properties.attr
+    console.log('Form Select: ',this.config);
   }
 
 }

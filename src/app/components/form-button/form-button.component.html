@@ -1,7 +1,7 @@
-<div 
+<div *ngIf="config"
       class="dynamic-field form-button"
       [formGroup]="group">
       <button type="submit">
-        {{ config.label }}
+        {{ config.value }}
       </button>
     </div>

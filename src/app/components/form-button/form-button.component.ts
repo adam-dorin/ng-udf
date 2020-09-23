@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { UdfFormElement } from 'ng-udf';
 
 
 @Component({
@@ -9,11 +10,12 @@ import { FormGroup } from '@angular/forms';
 })
 export class FormButtonComponent implements OnInit {
 
-  config;
+  config: UdfFormElement;
   group: FormGroup;
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Form Button: ',this.config);
   }
 
 }

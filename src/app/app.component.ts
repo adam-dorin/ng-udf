@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgUdfService } from 'ng-udf';
+import { NgUdfService, UdfComponentList, UdfForm } from 'ng-udf';
 import { FormButtonComponent } from './components/form-button/form-button.component';
 import { FormInputComponent } from './components/form-input/form-input.component';
 import { FormSelectComponent } from './components/form-select/form-select.component';
@@ -11,32 +11,46 @@ import { FormSelectComponent } from './components/form-select/form-select.compon
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  config = [
-    {
-      type: 'input',
-      label: 'Full name',
-      name: 'name',
-      placeholder: 'Enter your name',
-    },
-    {
-      type: 'select',
-      label: 'Favourite food',
-      name: 'food',
-      options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
-      placeholder: 'Select an option',
-    },
-    {
-      label: 'Submit',
-      name: 'submit',
-      type: 'button',
-    },
-  ];
+  config: UdfForm = {
+    elements:[
+      {
+        type: 'input',
+        name: 'name',
+        value:'',
+        properties:{
+          attr:{
+            placeholder: 'Enter your name',
+            label:'Full name'
+          }
+        } 
+      },
+      {
+        type:'select',
+        name: 'food',
+        value:'',
+        properties:{
+          attr:{
+            label: 'Favourite food',
+            options: ['Pizza', 'Hot Dogs', 'Knakworstje', 'Coffee'],
+            placeholder: 'Select an option',
+          }
+        }
+      },
+      {
+        type: 'button',
+        name: 'submit',
+        value: 'Submit'
+      }
+    ]
+  }
+
+  components: UdfComponentList = { // need a better interface that enforces the list
+    input: FormInputComponent,
+    select: FormSelectComponent,
+    button: FormButtonComponent,
+  }
 
   constructor(private udfService: NgUdfService) {
-    this.udfService.setComponents({
-      input: FormInputComponent,
-      select: FormSelectComponent,
-      button: FormButtonComponent
-    })
+    this.udfService.setComponents(this.components)
   }
 }
