@@ -6,7 +6,7 @@ The goal is to build an angular package that can generate a form based on a sche
 
 ```bash 
 
-npm i ng-udf --save-dev
+npm i ng-udf --save
 
 ```
 ## Research
@@ -14,40 +14,5 @@ npm i ng-udf --save-dev
 Doc is [here](https://github.com/adam-dorin/ng-udf/blob/master/Research-and-plans.md)
 
 ### Current Model:
-```json
-{
-  "type": "select",
-  "label": "Favorite food",
-  "name": "food",
-  "options": [
-      "Pizza", 
-      "Hot Dogs", 
-      "Knakworstje", 
-      "Coffee"
-    ],
-  "placeholder": "Select an option",
-}
+[See Model File](https://github.com/adam-dorin/ng-udf/blob/master/projects/ng-udf/src/lib/ng-udf.model.ts)
 
-```
-
-### Target Model:
-
-```json
-{
-    "form": {
-        "elements":[
-            {
-                "type": "string | FormElementsTypes | Container",
-                "name": "string",
-                "value": "any",
-                "validation": "ValidationRule[]",
-                "properties":{
-                    "children": "?FormElement[]",
-                    "options": "?HTMLElementOptions"
-                }
-            }
-        ]
-    }
-}
-
-```
