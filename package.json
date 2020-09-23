@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "lib-start":"ng build ngUdf --watch",
+    "lib-build":"ng build ngUdf --prod"
   },
   "private": true,
   "dependencies": {
