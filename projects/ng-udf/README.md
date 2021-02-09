@@ -8,7 +8,7 @@ forms by using a schema.
 
 ### TODO:
 * [x] Publish the package to npm
-* [ ] Add support for multiple forms
+* [x] Add support for multiple forms
 * [ ] Make a schema helper/generator
 * [ ] Add some demos
 * [ ] Add events
