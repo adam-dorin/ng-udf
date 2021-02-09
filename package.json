@@ -9,7 +9,12 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "lib-start":"ng build ngUdf --watch",
-    "lib-build":"ng build ngUdf --prod"
+    "lib-build":"ng build ngUdf --prod",
+    "npm-publish":"npm run lib-build && cd dist/ng-udf && npm publish",
+    "patch":"cd projects/ng-udf && npm version patch --force && cd ../..",
+    "minor":"cd projects/ng-udf && npm version minor --force && cd ../..",
+    "major":"cd projects/ng-udf && npm version patch --force && cd ../.."
+
   },
   "private": true,
   "dependencies": {
