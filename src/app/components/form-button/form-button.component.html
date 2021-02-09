@@ -1,7 +1,7 @@
 <div *ngIf="config"
       class="dynamic-field form-button"
       [formGroup]="group">
-      <button type="submit">
+      <button type="submit" (click)="onClick($event)">
         {{ config.value }}
       </button>
     </div>

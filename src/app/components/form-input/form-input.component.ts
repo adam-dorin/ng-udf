@@ -20,4 +20,8 @@ export class FormInputComponent implements OnInit {
     
   }
 
+  onChange(event) {
+    console.log('the change',this.group)
+  }
+
 }

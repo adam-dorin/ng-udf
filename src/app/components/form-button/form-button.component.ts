@@ -12,10 +12,15 @@ export class FormButtonComponent implements OnInit {
 
   config: UdfFormElement;
   group: FormGroup;
+
   constructor() { }
 
   ngOnInit(): void {
     console.log('Form Button: ',this.config);
+  }
+
+  onClick(event) {
+    console.log('button click', event,this.group)
   }
 
 }

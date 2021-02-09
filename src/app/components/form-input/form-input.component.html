@@ -4,6 +4,7 @@
       <label>{{ config.value }}</label>
       <input
         type="text"
+        (change)="onChange($event)"
         [attr.placeholder]="attr.placeholder"
         [formControlName]="config.name" />
     </div>
