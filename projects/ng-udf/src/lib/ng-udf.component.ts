@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { UdfForm } from './ng-udf.model';
@@ -6,10 +6,10 @@ import { NgUdfService } from './ng-udf.service';
 
 @Component({
   selector: 'ng-udf',
-  template:`
-  <form class="dynamic-form" *ngIf="form" [formGroup]="form">
+  template: `
+  <form class="dynamic-form"  [formGroup]="form" (ngSubmit)="onSubmit()">
   <ng-container 
-      *ngFor="let field of config.elements;" 
+      *ngFor="let field of configuration.elements; trackBy: fieldTracker" 
       dynamicField 
       [component]="components[field.type]" 
       [config]="field"
@@ -23,35 +23,51 @@ export class NgUdfComponent implements OnDestroy, OnInit {
 
   private $directiveConfig: Subscription;
 
-  @Input() config: UdfForm;
+  @Input() configuration: UdfForm;
+  @Input() formName: string;
+
+  @Output() submit: EventEmitter<any> = new EventEmitter();
+
   components;
   form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     private udfService: NgUdfService
-  ) {
-
-    this.$directiveConfig =
-      this.udfService.getDirectiveConfig().subscribe(components => {
-        this.components = components;
-      });
-  }
+  ) { }
 
   ngOnInit() {
-    this.form = this.createGroup();
+    this.$directiveConfig =
+      this.udfService.getDirectiveConfig(this.formName).subscribe(components => {
+        this.components = components;
+        this.form = this.createGroup();
+      });
   }
 
   createGroup() {
     const group = this.fb.group({});
     // debugger;
-    this.config.elements.forEach(control => {
+    this.configuration.elements.forEach(control => {
       // TODO: Check the ussage here: https://angular.io/api/forms/FormBuilder#control-usage-notes
       // https://angular.io/api/forms/FormBuilder#control
-      console.log(control)
-      group.addControl(control.name, this.fb.control(control.value))
+      if (control.validation) {
+        group.addControl(control.name,
+          this.fb.control(control.value,
+            control.validation.validatorOrOpts || null, control.validation.asyncValidator || null)
+        );
+      } else {
+        group.addControl(control.name, this.fb.control(control.value));
+      }
     });
     return group;
+  }
+
+  onSubmit() {
+    this.submit.emit(this.form);
+  }
+
+  fieldTracker(index, field: any) {
+    return field.type;
   }
 
   ngOnDestroy() {

@@ -1,6 +1,8 @@
+import { AbstractControlOptions, AsyncValidatorFn, ValidatorFn } from "@angular/forms";
 
 export interface UdfForm {
     elements: UdfFormElement[];
+    components: UdfComponentList
 }
 
 export interface UdfFormElement {
@@ -31,7 +33,8 @@ interface UdfElementProperties {
 }
 
 interface UdfValidationRule {
-    [name: string]: string | number; //any
+    validatorOrOpts?: ValidatorFn | ValidatorFn[] | AbstractControlOptions | null,
+    asyncValidator?: AsyncValidatorFn | AsyncValidatorFn[] | null
 }
 
 interface UdfElementOptions {
