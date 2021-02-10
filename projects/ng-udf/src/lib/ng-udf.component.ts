@@ -45,12 +45,15 @@ export class NgUdfComponent implements OnDestroy, OnInit {
   }
 
   createGroup() {
+    // TODO: move this method in a private service
     const group = this.fb.group({});
     // debugger;
     this.configuration.elements.forEach(control => {
       // TODO: Check the ussage here: https://angular.io/api/forms/FormBuilder#control-usage-notes
       // https://angular.io/api/forms/FormBuilder#control
       if (control.validation) {
+        // TODO: use the fb.control to get .valueChanges https://angular.io/api/forms/AbstractControl#valueChanges
+        //       and subscribe to any changes that would be pushed when the form values change
         group.addControl(control.name,
           this.fb.control(control.value,
             control.validation.validatorOrOpts || null, control.validation.asyncValidator || null)
@@ -63,6 +66,7 @@ export class NgUdfComponent implements OnDestroy, OnInit {
   }
 
   onSubmit() {
+    // TODO: refactor this to be a part of the service rather than the component
     this.submit.emit(this.form);
   }
 

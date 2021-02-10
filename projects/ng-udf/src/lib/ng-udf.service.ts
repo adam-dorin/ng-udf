@@ -14,10 +14,12 @@ export class NgUdfService {
     'input',
     'select'
   ]
+  // TODO: refactor this to be better suited names
   private directiveConfiguration: { [formName:string]: { [componentName: string]: any } } = {};
   private $directiveConfiguration: { [formName: string]: BehaviorSubject<{ [name: string]: any }> } = {};
 
   createForm(name: string, formConfiguration: UdfForm) {
+    // TODO: Make this method an internal one to be used by the ng-udf.component;
     if (!!this.directiveConfiguration[name]) {
       console.warn(`A form with '${name}' name already exists`)
     }
